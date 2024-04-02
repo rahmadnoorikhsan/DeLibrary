@@ -28,7 +28,6 @@ fun FolderItem(
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.padding(8.dp)
     ) {
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_folder),

@@ -1,5 +1,7 @@
 package com.rahmadev.delibrary.data
 
+import com.rahmadev.delibrary.R
+import com.rahmadev.delibrary.model.Book
 import com.rahmadev.delibrary.model.Faculty
 
 object FacultiesData {
@@ -20,5 +22,18 @@ object FacultiesData {
             4,
             "FIT"
         ),
+    )
+
+    val books = listOf(
+        Book(
+            1,
+            "Software Engineering",
+            R.drawable.software1
+        ),
+        Book(
+            2,
+            "Modern Software Engineering",
+            R.drawable.software
+        )
     )
 }
