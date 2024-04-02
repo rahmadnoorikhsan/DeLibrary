@@ -12,17 +12,22 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rahmadev.delibrary.R
+import com.rahmadev.delibrary.ui.screen.home.component.Faculties
+import com.rahmadev.delibrary.ui.screen.home.component.Slider
 import com.rahmadev.delibrary.ui.theme.DeLibraryTheme
 
 @Composable
@@ -79,6 +84,26 @@ fun HomeContent(
             }
             Spacer(modifier = Modifier.height(24.dp))
             Slider(modifier = Modifier.padding(horizontal = 8.dp))
+            Surface(
+                shape = MaterialTheme.shapes.extraLarge,
+                color = Color.White,
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(24.dp)
+                ) {
+                    Text(
+                        text = "FAKULTAS", style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold
+                        )
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Faculties()
+                }
+            }
         }
     }
 }

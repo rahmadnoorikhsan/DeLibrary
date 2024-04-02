@@ -8,7 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.rahmadev.delibrary.ui.navigation.BottomBar
+import com.rahmadev.delibrary.ui.component.BottomBar
+import com.rahmadev.delibrary.ui.navigation.Screen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.home.HomeScreen
 import com.rahmadev.delibrary.ui.screen.profile.ProfileScreen
@@ -25,16 +26,16 @@ fun DeLibraryApp(
     ) {
         NavHost(
             navController = navHostController,
-            startDestination = "Home",
+            startDestination = Screen.Home.route,
             modifier = modifier.padding(it)
         ) {
-            composable("Home") {
+            composable(Screen.Home.route) {
                 HomeScreen()
             }
-            composable("Catalog") {
+            composable(Screen.Catalog.route) {
                 CatalogScreen()
             }
-            composable("Profile") {
+            composable(Screen.Profile.route) {
                 ProfileScreen()
             }
         }
