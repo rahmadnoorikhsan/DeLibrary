@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.rahmadev.delibrary.ui.component.Header
-import com.rahmadev.delibrary.ui.screen.catalog.component.FavoriteBoook
+import com.rahmadev.delibrary.ui.navigation.Screen
+import com.rahmadev.delibrary.ui.screen.catalog.component.FavoriteBook
 import com.rahmadev.delibrary.ui.screen.catalog.component.NewBook
 import com.rahmadev.delibrary.ui.screen.catalog.component.SearchView
 
@@ -43,11 +45,6 @@ fun CatalogContent(
 ) {
     Column(modifier = modifier.fillMaxSize()) {
         Header(showSearch = false, title = "Katalog Perpustakaan IT Del")
-        Spacer(modifier = Modifier.height(24.dp))
-        Text(
-            text = "Katalog Perpustakaan IT Del", textAlign = TextAlign.Center, color = Color.White,
-            modifier = modifier.fillMaxWidth(),
-        )
         Spacer(modifier = Modifier.height(24.dp))
         SearchView()
 
@@ -86,10 +83,9 @@ fun CatalogContent(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(text = "BUKU TERBARU")
-                            Text(
-                                text = "Semua",
-                                color = Color.Blue
-                            )
+                            TextButton(onClick = { navController.navigate(Screen.ListBook.route) }) {
+                                Text(text = "Semua", color = Color.Blue)
+                            }
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                         NewBook(navController = navController)
@@ -113,72 +109,16 @@ fun CatalogContent(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(text = "BUKU TERFAVORITE")
-                            Text(
-                                text = "Semua",
-                                color = Color.Blue
-                            )
+                            TextButton(onClick = { navController.navigate(Screen.ListBook.route) }) {
+                                Text(text = "Semua", color = Color.Blue)
+                            }
                         }
                         Spacer(modifier = Modifier.height(16.dp))
-                        FavoriteBoook(navController = navController)
-                    }
-                }
-            }
-            item {
-                Surface(
-                    shape = MaterialTheme.shapes.extraLarge,
-                    color = Color.White,
-                    modifier = Modifier.padding(16.dp)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(24.dp)
-                    ) {
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Text(text = "BUKU TERFAVORITE")
-                            Text(
-                                text = "Semua",
-                                color = Color.Blue
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(16.dp))
-                        FavoriteBoook(navController = navController)
-                    }
-                }
-            }
-            item {
-                Surface(
-                    shape = MaterialTheme.shapes.extraLarge,
-                    color = Color.White,
-                    modifier = Modifier.padding(16.dp)
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(24.dp)
-                    ) {
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Text(text = "BUKU TERFAVORITE")
-                            Text(
-                                text = "Semua",
-                                color = Color.Blue
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(16.dp))
-                        FavoriteBoook(navController = navController)
+                        FavoriteBook(navController = navController)
                     }
                 }
             }

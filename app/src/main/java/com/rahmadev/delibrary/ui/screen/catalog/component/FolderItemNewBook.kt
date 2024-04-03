@@ -49,11 +49,12 @@ fun FolderBookFavorite(
     modifier: Modifier = Modifier,
     newFavoriteBook: FavoriteBook = FacultiesData.favoritebook[0],
     onItemClick: (Int) -> Unit
-){
+) {
     Column(
-        modifier = modifier.clickable {
-            onItemClick(newFavoriteBook.idBookFav)
-        },
+        modifier = modifier
+            .clickable {
+                onItemClick(newFavoriteBook.idBookFav)
+            },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

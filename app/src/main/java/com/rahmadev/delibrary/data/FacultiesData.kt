@@ -29,27 +29,104 @@ object FacultiesData {
         Book(
             1,
             "Software Engineering",
-            R.drawable.software1
+            R.drawable.software1,
+            "English",
+            "Programming-Software Engineering",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2021,
+            "Tersedia"
         ),
         Book(
             2,
             "Modern Software Engineering",
-            R.drawable.software
+            R.drawable.software,
+            "Indonesia",
+            "Programming-Software Engineering",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2022,
+            "Dipinjam"
         ),
         Book(
             3,
-            "Modern Software Engineering",
-            R.drawable.software
+            "Jaringan Komputer",
+            R.drawable.jaringan,
+            "Indonesia",
+            "Jaringan",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2020,
+            "Tersedia"
         ),
         Book(
             4,
-            "Modern Software Engineering",
-            R.drawable.software
+            "Dasar Algoritma JavaScript",
+            R.drawable.javascript,
+            "Indonesia",
+            "Programming-Software Engineering",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2023,
+            "Tersedia"
         ),
         Book(
             5,
-            "Modern Software Engineering",
-            R.drawable.software
+            "Kalkulus",
+            R.drawable.kalkulus,
+            "Indonesia",
+            "Programming-Software Engineering",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2023,
+            "Dipinjam"
+        ),
+        Book(
+            6,
+            "Pengantar Komputer",
+            R.drawable.pengantar_komputer,
+            "Indonesia",
+            "Programming-Software Engineering",
+            "Roger Pressman",
+            "Mc Graw Hill",
+            "Key Features : *the latest versions of\n" +
+                    "Java and UML *Increased coverage of distributed \n" +
+                    "system including security and e-commerce \n" +
+                    "*Exmination of the web and its implications for \n" +
+                    "software engineering",
+            "LT.2",
+            2022,
+            "Dipinjam"
         )
     )
 

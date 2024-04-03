@@ -19,6 +19,7 @@ import com.rahmadev.delibrary.ui.component.BottomBar
 import com.rahmadev.delibrary.ui.navigation.Screen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
+import com.rahmadev.delibrary.ui.screen.catalog.ListNewBook
 import com.rahmadev.delibrary.ui.screen.home.HomeScreen
 import com.rahmadev.delibrary.ui.screen.profile.ProfileScreen
 import com.rahmadev.delibrary.ui.screen.searchhome.SearchHomeScreen
@@ -68,6 +69,9 @@ fun DeLibraryApp(
             }
             composable(Screen.SearchHome.route) {
                 SearchHomeScreen(navController = navHostController)
+            }
+            composable(Screen.ListBook.route) {
+                ListNewBook(navController = navHostController)
             }
         }
     }
