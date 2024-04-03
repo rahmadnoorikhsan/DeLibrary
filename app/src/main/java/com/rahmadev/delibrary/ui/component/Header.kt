@@ -25,7 +25,8 @@ import com.rahmadev.delibrary.R
 fun Header(
     showSearch: Boolean,
     title: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+            isLogin: Boolean = false
 ) {
     Column(
         modifier = modifier
@@ -35,7 +36,7 @@ fun Header(
             contentDescription = "Molis Icon",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 16.dp)
+                .padding(top = if (isLogin) 32.dp else 16.dp)
                 .height(54.dp)
         )
         Spacer(modifier = Modifier.height(32.dp))
