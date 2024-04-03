@@ -1,25 +1,31 @@
 package com.rahmadev.delibrary.ui.screen.catalog
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -36,11 +42,13 @@ import com.rahmadev.delibrary.ui.component.Header
 fun DetailCatalog(
     modifier: Modifier = Modifier,
     navController: NavController,
-    bookId: Int?
+    bookId: Int?,
 ) {
     val newBookList = FacultiesData.books.filter { book ->
         book.id == bookId
     }
+    val context = LocalContext.current
+
     Column {
         Header(showSearch = false, title = "Katalog Perpustakaan IT Del")
         Surface(
@@ -48,7 +56,7 @@ fun DetailCatalog(
             color = Color.White,
             modifier = modifier.fillMaxSize()
         ) {
-            Column {
+            Column(modifier = Modifier) {
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier.fillMaxWidth()
@@ -56,8 +64,7 @@ fun DetailCatalog(
                     IconButton(
                         onClick = { navController.popBackStack() },
                         modifier = Modifier
-                            .align(Alignment.CenterStart)
-                            .padding(start = 24.dp),
+                            .align(Alignment.CenterStart),
                     ) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -74,17 +81,18 @@ fun DetailCatalog(
                         modifier = Modifier.fillMaxWidth(0.6f)
                     )
                 }
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = newBookList[0].image),
-                        contentDescription = null,
-                        modifier = Modifier.height(150.dp),
-                        contentScale = ContentScale.Crop
-                    )
-                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Image(
+                    painter = painterResource(id = newBookList[0].image),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(160.dp)
+                        .width(120.dp)
+                        .clip(MaterialTheme.shapes.medium)
+                        .align(Alignment.CenterHorizontally),
+                    contentScale = ContentScale.Crop,
+                )
+                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     buildAnnotatedString {
                         withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
@@ -94,7 +102,7 @@ fun DetailCatalog(
                             append(newBookList[0].id.toString())
                         }
                     },
-                    modifier = Modifier.padding(top = 14.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -104,7 +112,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].title)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -114,7 +123,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].language)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -124,7 +134,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].subject)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -134,7 +145,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].author)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -144,7 +156,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].publisher)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -154,7 +167,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].description)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -164,7 +178,8 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].bookLocation)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
                 Text(
                     buildAnnotatedString {
@@ -174,13 +189,21 @@ fun DetailCatalog(
                         withStyle(style = SpanStyle()) {
                             append(newBookList[0].bookStatus)
                         }
-                    }
+                    },
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
+                Spacer(modifier = Modifier.height(16.dp))
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                        Toast.makeText(
+                            context,
+                            "Fitur Sedang dikembangkan",
+                            Toast.LENGTH_SHORT
+                        ).show() },
+                    shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 20.dp, start = 24.dp, end = 24.dp)
+                        .padding(horizontal = 16.dp)
                 ) {
                     Text(text = "Pinjam")
                 }

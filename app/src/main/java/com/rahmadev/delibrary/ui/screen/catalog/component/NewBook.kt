@@ -14,14 +14,13 @@ import com.rahmadev.delibrary.ui.navigation.Screen
 @Composable
 fun NewBook(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
 ) {
     val newBook = FacultiesData.books
 
-
-    LazyRow( horizontalArrangement = Arrangement.spacedBy(8.dp), contentPadding = PaddingValues(
-        horizontal = 16.dp
-    ),
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp),
         modifier = modifier
     ) {
         items(newBook, { it.id }) {

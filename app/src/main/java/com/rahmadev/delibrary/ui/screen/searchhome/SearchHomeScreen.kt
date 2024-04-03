@@ -76,7 +76,7 @@ fun SearchHomeContent(
         TextField(
             value = query,
             onValueChange = onQueryChange,
-            shape = MaterialTheme.shapes.small,
+            shape = MaterialTheme.shapes.medium,
             leadingIcon = {
                 IconButton(onClick = onBackClick) {
                     Icon(
