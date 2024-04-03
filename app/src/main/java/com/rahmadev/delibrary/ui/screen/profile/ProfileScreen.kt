@@ -1,5 +1,6 @@
 package com.rahmadev.delibrary.ui.screen.profile
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -7,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.EditNote
@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -43,30 +44,44 @@ fun ProfileScreen(
 ) {
     ProfileContent(
         modifier = modifier,
-        navController = navController
+        onLoginClick = { navController.navigate(Screen.Login.route) }
     )
 }
 
 @Composable
-fun Demo_Switch() {
+fun ButtonLogin(onClick: () -> Unit) {
+    Button(
+        onClick = { onClick() },
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text("Masuk")
+    }
+}
+
+
+@Composable
+fun Demo_Switch(
+    modifier: Modifier = Modifier,
+) {
     var switchCheckedState by remember {
         mutableStateOf(false)
     }
-
     Box(
-        modifier = Modifier.width(220.dp)
+        modifier = modifier
     ) {
         Switch(
             checked = switchCheckedState,
-            onCheckedChange = { switchCheckedState = it })
+            onCheckedChange = { switchCheckedState = it },
+            modifier = modifier
+        )
     }
 }
 
 @Composable
 fun ProfileContent(
-//    onLoginClick: () -> Unit,
+    onLoginClick: () -> Unit,
     modifier: Modifier = Modifier,
-    navController: NavController
 ) {
     Column {
         Header(showSearch = false, title = stringResource(id = R.string.text_home))
@@ -75,8 +90,10 @@ fun ProfileContent(
             text = "Selamat Datang, ana",
             color = Color.White,
             textAlign = TextAlign.End,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(end = 16.dp)
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -85,45 +102,78 @@ fun ProfileContent(
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Column {
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
                 Text(text = "PENGATURAN", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(thickness = 3.dp)
-                Row {
-                    Icon(imageVector = Icons.Outlined.Circle, contentDescription = "")
-                    Text(text = "Dark Mode")
-                    Demo_Switch()
+                Spacer(modifier = Modifier.height(10.dp))
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(imageVector = Icons.Outlined.Circle, contentDescription = "")
+                        Text(text = "Dark Mode")
+                    }
+                    Demo_Switch(modifier = Modifier)
                 }
             }
         }
 
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(20   .dp))
         Surface(
             color = Color.White,
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Column {
+            Column(modifier = Modifier.padding(16.dp)) {
                 Text(text = "BANTUAN", fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(thickness = 3.dp)
-                Row {
-                    Icon(imageVector = Icons.Default.Person4, contentDescription = "")
-                    Text(text = "Kontak Perpustakaan")
+                Spacer(modifier = Modifier.height(16.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                    ) {
+                        Icon(imageVector = Icons.Default.Person4, contentDescription = "")
+                        Text(text = "Kontak Perpustakaan")
+                    }
                     Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
-                    Spacer(modifier = Modifier.height(25.dp))
                 }
-                Row {
-                    Icon(imageVector = Icons.Default.EditNote, contentDescription = "")
-                    Text(text = "Ubah Kata Sandi")
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                    ) {
+                        Icon(imageVector = Icons.Default.EditNote, contentDescription = "")
+                        Text(text = "Ubah Kata Sandi")
+                    }
                     Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
-                    Spacer(modifier = Modifier.height(50.dp))
                 }
-
-                Button(onClick = { navController.navigate(Screen.Login.route) }, modifier = Modifier.fillMaxWidth()) {
-                    Text(text = "Masuk")
+                Spacer(modifier = Modifier.height(24.dp))
+                ButtonLogin {
+                    onLoginClick()
                 }
             }
         }
     }
 }
+
+
+
