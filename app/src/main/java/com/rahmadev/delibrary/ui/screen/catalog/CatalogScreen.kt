@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -59,8 +60,8 @@ fun CatalogContent(
         Column(modifier = Modifier.padding(it)) {
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = "Katalog Perpustakaan IT Del", textAlign = TextAlign.Center,
-                modifier = modifier.fillMaxWidth()
+                text = "Katalog Perpustakaan IT Del", textAlign = TextAlign.Center,color= Color.White,
+                modifier = modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.height(24.dp))
             SearchView()
