@@ -13,16 +13,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.rahmadev.delibrary.R
 import com.rahmadev.delibrary.ui.component.Header
 import com.rahmadev.delibrary.ui.screen.home.component.Faculties
 import com.rahmadev.delibrary.ui.screen.home.component.Slider
-import com.rahmadev.delibrary.ui.theme.DeLibraryTheme
 
 @Composable
 fun HomeScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     HomeContent(modifier)
@@ -35,7 +37,7 @@ fun HomeContent(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        Header()
+        Header(showSearch = true, title = stringResource(R.string.text_home))
         Slider(modifier = Modifier.padding(horizontal = 8.dp))
         Surface(
             shape = MaterialTheme.shapes.extraLarge,
@@ -57,13 +59,5 @@ fun HomeContent(
                 Faculties()
             }
         }
-    }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-private fun HomeScreenPreview() {
-    DeLibraryTheme {
-        HomeScreen()
     }
 }

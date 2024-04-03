@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -31,7 +30,7 @@ import com.rahmadev.delibrary.ui.screen.catalog.component.SearchView
 @Composable
 fun CatalogScreen(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
 ) {
     CatalogContent(
         modifier,
@@ -42,7 +41,7 @@ fun CatalogScreen(
 @Composable
 fun CatalogContent(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
 ) {
     Scaffold(
         topBar = {

@@ -33,7 +33,7 @@ fun DeLibraryApp(
             modifier = modifier.padding(it)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(navController = navHostController)
             }
             composable(Screen.Catalog.route) {
                 CatalogScreen(navController = navHostController)
@@ -41,7 +41,6 @@ fun DeLibraryApp(
             composable(Screen.Profile.route) {
                 ProfileScreen()
             }
-
             composable(
                 Screen.DetailCatalog.route + "/{bookId}",
                 arguments = listOf(navArgument("bookId") { type = NavType.IntType })
