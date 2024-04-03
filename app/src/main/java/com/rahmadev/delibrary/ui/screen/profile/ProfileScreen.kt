@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ArrowRightAlt
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Person4
 import androidx.compose.material.icons.outlined.Circle
@@ -84,13 +84,13 @@ fun ProfileContent(
                 Row{
                     Icon(imageVector =Icons.Default.Person4 , contentDescription ="" )
                     Text(text = "Kontak Perpustakaan")
-                    Icon(imageVector = Icons.AutoMirrored.Outlined.ArrowRightAlt, contentDescription = "")
+                    Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
                     Spacer(modifier = Modifier.height(25.dp))
                 }
                 Row {
                     Icon(imageVector = Icons.Default.EditNote, contentDescription = "")
                     Text(text = "Ubah Kata Sandi")
-                    Icon(imageVector = Icons.AutoMirrored.Outlined.ArrowRightAlt, contentDescription = "")
+                    Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
                     Spacer(modifier = Modifier.height(50.dp))
                 }
 

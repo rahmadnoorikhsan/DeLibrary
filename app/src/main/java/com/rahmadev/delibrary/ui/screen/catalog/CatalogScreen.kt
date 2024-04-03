@@ -44,11 +44,6 @@ fun CatalogContent(
     Column(modifier = modifier.fillMaxSize()) {
         Header(showSearch = false, title = "Katalog Perpustakaan IT Del")
         Spacer(modifier = Modifier.height(24.dp))
-        Text(
-            text = "Katalog Perpustakaan IT Del", textAlign = TextAlign.Center, color = Color.White,
-            modifier = modifier.fillMaxWidth(),
-        )
-        Spacer(modifier = Modifier.height(24.dp))
         SearchView()
 
         LazyColumn {
