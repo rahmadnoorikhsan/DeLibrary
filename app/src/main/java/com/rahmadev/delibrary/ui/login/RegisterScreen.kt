@@ -1,5 +1,6 @@
 package com.rahmadev.delibrary.ui.login
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -78,6 +80,7 @@ fun RegisterContent(
     }
     var passwordVisible by remember { mutableStateOf(false) }
     var passwordConfirmVisible by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Column {
         Surface(
@@ -253,7 +256,9 @@ fun RegisterContent(
                         )
                     }
                     Button(
-                        onClick = { navController.navigate(Screen.SuccessRegister.route) },
+                        onClick = {
+                            Toast.makeText(context, "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show()
+                            navController.navigate(Screen.SuccessRegister.route) },
                         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
                     ) {
                         Text(text = "Daftar", fontSize = 20.sp)
