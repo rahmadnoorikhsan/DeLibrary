@@ -28,14 +28,16 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.rahmadev.delibrary.R
 import com.rahmadev.delibrary.ui.component.Header
+import com.rahmadev.delibrary.ui.navigation.Screen
 
 @Composable
 fun ProfileScreen(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
 ) {
     ProfileContent(
-        modifier
+        modifier = modifier,
+        onLoginClick = { navController.navigate(Screen.Login.route) }
     )
 }
 
@@ -45,16 +47,21 @@ fun ButtonLogin(onClick: () -> Unit) {
         Text("Masuk")
     }
 }
+
 @Composable
 fun ProfileContent(
+    onLoginClick: () -> Unit,
     modifier: Modifier = Modifier,
-
 ) {
     Column {
-        Header(showSearch = false, title = stringResource(id = R.string.text_home) )
+        Header(showSearch = false, title = stringResource(id = R.string.text_home))
         Spacer(modifier = modifier.height(10.dp))
-        Text(text = "Selamat Datang, ana", color = Color.White, textAlign = TextAlign.End, modifier = Modifier
-            .fillMaxWidth()
+        Text(
+            text = "Selamat Datang, ana",
+            color = Color.White,
+            textAlign = TextAlign.End,
+            modifier = Modifier
+                .fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -75,19 +82,19 @@ fun ProfileContent(
                 }
             }
         }
-        
+
         Spacer(modifier = Modifier.padding(20.dp))
-        Surface (
+        Surface(
             color = Color.White,
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             Column {
                 Text(text = "BANTUAN", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(thickness = 3.dp)
-                Row{
-                    Icon(imageVector =Icons.Default.Person4 , contentDescription ="" )
+                Row {
+                    Icon(imageVector = Icons.Default.Person4, contentDescription = "")
                     Text(text = "Kontak Perpustakaan")
                     Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
                     Spacer(modifier = Modifier.height(25.dp))
@@ -100,6 +107,7 @@ fun ProfileContent(
                 }
 
                 ButtonLogin {
+                    onLoginClick()
                 }
             }
         }
