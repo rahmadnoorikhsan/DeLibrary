@@ -20,7 +20,7 @@ object NavigationData {
             screen = Screen.Catalog
         ),
         NavigationItem(
-            title = "Home",
+            title = "Profile",
             icon = Icons.Default.Person,
             screen = Screen.Profile
         ),

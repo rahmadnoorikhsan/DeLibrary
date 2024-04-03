@@ -24,9 +24,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.rahmadev.delibrary.R
+import com.rahmadev.delibrary.ui.screen.catalog.component.FavoriteBoook
 import com.rahmadev.delibrary.ui.screen.catalog.component.NewBook
 import com.rahmadev.delibrary.ui.screen.catalog.component.SearchView
-import com.rahmadev.delibrary.ui.screen.home.component.Faculties
 
 @Composable
 fun CatalogScreen(
@@ -65,48 +65,139 @@ fun CatalogContent(
             )
             Spacer(modifier = Modifier.height(24.dp))
             SearchView()
-            Surface(
-                shape = MaterialTheme.shapes.extraLarge,
-                color = Color.White,
-                modifier = Modifier.padding(16.dp)
-            ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(24.dp)
-                ) {
-                    Text(
-                        modifier = Modifier.fillMaxWidth(),
-                        text = "KATEGORI", style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Bold, textAlign = TextAlign.Start
-                        )
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = "BUKU")
-                        Text(text = "E-BOOK")
-                        Text(text = "JURNAL")
-                        Text(text = "NOVEL")
-                    }
-                    Spacer(modifier = Modifier.height(32.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = "BUKU TERBARU")
-                        Text(
-                            text = "Semua",
-                            color = Color.Blue
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    NewBook(navController = navController)
-                }
-            }
+
+
+           LazyColumn()
+           {
+               item {
+                   Surface(
+                       shape = MaterialTheme.shapes.extraLarge,
+                       color = Color.White,
+                       modifier = Modifier.padding(16.dp)
+                   ) {
+                       Column(
+                           horizontalAlignment = Alignment.CenterHorizontally,
+                           modifier = Modifier
+                               .fillMaxWidth()
+                               .padding(24.dp)
+                       ) {
+                           Text(
+                               modifier = Modifier.fillMaxWidth(),
+                               text = "KATEGORI", style = MaterialTheme.typography.titleMedium.copy(
+                                   fontWeight = FontWeight.Bold, textAlign = TextAlign.Start
+                               )
+                           )
+                           Spacer(modifier = Modifier.height(16.dp))
+                           Row(
+                               modifier = Modifier.fillMaxWidth(),
+                               horizontalArrangement = Arrangement.SpaceBetween
+                           ) {
+                               Text(text = "BUKU")
+                               Text(text = "E-BOOK")
+                               Text(text = "JURNAL")
+                               Text(text = "NOVEL")
+                           }
+                           Spacer(modifier = Modifier.height(32.dp))
+                           Row(
+                               modifier = Modifier.fillMaxWidth(),
+                               horizontalArrangement = Arrangement.SpaceBetween
+                           ) {
+                               Text(text = "BUKU TERBARU")
+                               Text(
+                                   text = "Semua",
+                                   color = Color.Blue
+                               )
+                           }
+                           Spacer(modifier = Modifier.height(16.dp))
+                           NewBook(navController = navController)
+                       }
+                   }
+               }
+              item {
+                  Surface(
+                      shape = MaterialTheme.shapes.extraLarge,
+                      color = Color.White,
+                      modifier = Modifier.padding(16.dp)
+                  ) {
+                      Column(
+                          horizontalAlignment = Alignment.CenterHorizontally,
+                          modifier = Modifier
+                              .fillMaxWidth()
+                              .padding(vertical = 24.dp)
+                      ) {
+                          Spacer(modifier = Modifier.height(16.dp))
+                          Row(
+                              modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                              horizontalArrangement = Arrangement.SpaceBetween
+                          ) {
+                              Text(text = "BUKU TERFAVORITE")
+                              Text(
+                                  text = "Semua",
+                                  color = Color.Blue
+                              )
+                          }
+                          Spacer(modifier = Modifier.height(16.dp))
+                          FavoriteBoook(navController = navController)
+                      }
+                  }
+              }
+               item {
+                   Surface(
+                       shape = MaterialTheme.shapes.extraLarge,
+                       color = Color.White,
+                       modifier = Modifier.padding(16.dp)
+                   ) {
+                       Column(
+                           horizontalAlignment = Alignment.CenterHorizontally,
+                           modifier = Modifier
+                               .fillMaxWidth()
+                               .padding(24.dp)
+                       ) {
+                           Spacer(modifier = Modifier.height(16.dp))
+                           Row(
+                               modifier = Modifier.fillMaxWidth(),
+                               horizontalArrangement = Arrangement.SpaceBetween
+                           ) {
+                               Text(text = "BUKU TERFAVORITE")
+                               Text(
+                                   text = "Semua",
+                                   color = Color.Blue
+                               )
+                           }
+                           Spacer(modifier = Modifier.height(16.dp))
+                           FavoriteBoook(navController = navController)
+                       }
+                   }
+               }
+               item {
+                   Surface(
+                       shape = MaterialTheme.shapes.extraLarge,
+                       color = Color.White,
+                       modifier = Modifier.padding(16.dp)
+                   ) {
+                       Column(
+                           horizontalAlignment = Alignment.CenterHorizontally,
+                           modifier = Modifier
+                               .fillMaxWidth()
+                               .padding(24.dp)
+                       ) {
+                           Spacer(modifier = Modifier.height(16.dp))
+                           Row(
+                               modifier = Modifier.fillMaxWidth(),
+                               horizontalArrangement = Arrangement.SpaceBetween
+                           ) {
+                               Text(text = "BUKU TERFAVORITE")
+                               Text(
+                                   text = "Semua",
+                                   color = Color.Blue
+                               )
+                           }
+                           Spacer(modifier = Modifier.height(16.dp))
+                           FavoriteBoook(navController = navController)
+                       }
+                   }
+               }
+           }
         }
     }
 }
