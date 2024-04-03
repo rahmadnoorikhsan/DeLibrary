@@ -81,8 +81,6 @@ fun LoginContent(modifier: Modifier = Modifier) {
                     //Spacer(modifier = Modifier.weight(10.dp))
                     Text(text = "Daftar", fontWeight = FontWeight.Bold, color = Color(0xFF4222EE))
                 }
-
-
             }
         }
     }

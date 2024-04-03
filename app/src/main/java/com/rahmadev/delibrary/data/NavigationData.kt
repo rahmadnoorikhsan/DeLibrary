@@ -15,7 +15,7 @@ object NavigationData {
             screen = Screen.Home
         ),
         NavigationItem(
-            title = "Category",
+            title = "Catalog",
             icon = Icons.Default.Book,
             screen = Screen.Catalog
         ),
