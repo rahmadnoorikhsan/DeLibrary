@@ -66,17 +66,17 @@ object FacultiesData {
         ),
         FavoriteBook(
             3,
-            "Best Practice Software Engineer",
+            "Introduction to Software Engineering",
             R.drawable.rethinking
         ),
         FavoriteBook(
             4,
-            "Best Practice Software Engineer",
+            "Example of Software Engineering Implementation",
             R.drawable.rethinking
         ),
         FavoriteBook(
             5,
-            "Best Practice Software Engineer",
+            "Evaluation for Software Engineering Process",
             R.drawable.rethinking
         )
     )
