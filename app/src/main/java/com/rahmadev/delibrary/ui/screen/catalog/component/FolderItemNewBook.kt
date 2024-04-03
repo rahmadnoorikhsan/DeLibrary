@@ -17,12 +17,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.rahmadev.delibrary.data.FacultiesData
 import com.rahmadev.delibrary.model.Book
+import com.rahmadev.delibrary.model.FavoriteBook
 
 @Composable
 fun FolderItemNewBook(
     modifier: Modifier = Modifier,
     newBook: Book = FacultiesData.books[0],
-    onItemClick: (Int) -> Unit,
+    onItemClick: (Int) -> Unit
 ) {
     Column(
         modifier = modifier.clickable {
@@ -39,6 +40,31 @@ fun FolderItemNewBook(
                 .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
                 .height(150.dp),
             contentDescription = "Icon New Book"
+        )
+    }
+}
+
+@Composable
+fun FolderBookFavorite(
+    modifier: Modifier = Modifier,
+    newFavoriteBook: FavoriteBook = FacultiesData.favoritebook[0],
+    onItemClick: (Int) -> Unit
+){
+    Column(
+        modifier = modifier.clickable {
+            onItemClick(newFavoriteBook.idBookFav)
+        },
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Image(
+            painter = painterResource(id = newFavoriteBook.imageBookFav),
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+                .height(100.dp),
+            contentDescription = "Icon New Book Favorite"
         )
     }
 }

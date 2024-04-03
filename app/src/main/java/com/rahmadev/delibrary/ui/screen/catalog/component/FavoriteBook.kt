@@ -12,23 +12,21 @@ import com.rahmadev.delibrary.data.FacultiesData
 import com.rahmadev.delibrary.ui.navigation.Screen
 
 @Composable
-fun NewBook(
+fun FavoriteBoook(
     modifier: Modifier = Modifier,
     navController: NavController
 ) {
-    val newBook = FacultiesData.books
+    val favoriteBook = FacultiesData.favoritebook
 
-
-    LazyRow( horizontalArrangement = Arrangement.spacedBy(8.dp), contentPadding = PaddingValues(
-        horizontal = 16.dp
-    ),
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp),
         modifier = modifier
     ) {
-        items(newBook, { it.id }) {
-            FolderItemNewBook(newBook = it) { bookId ->
-                navController.navigate(Screen.DetailCatalog.route + "/$bookId")
+        items(favoriteBook, { it.idBookFav }) {
+            FolderBookFavorite(newFavoriteBook = it) { favoriteBook ->
+                navController.navigate(Screen.DetailCatalog.route + "/$favoriteBook")
             }
         }
     }
 }
-
