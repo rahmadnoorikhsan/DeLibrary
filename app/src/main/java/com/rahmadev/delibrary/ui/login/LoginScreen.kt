@@ -1,6 +1,7 @@
 package com.rahmadev.delibrary.ui.login
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -41,19 +43,23 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.rahmadev.delibrary.R
 import com.rahmadev.delibrary.ui.component.Header
+import com.rahmadev.delibrary.ui.navigation.Screen
 
 @Composable
 fun LoginScreen(
     modifier: Modifier = Modifier,
+    navController: NavController
 ) {
-    LoginContent(modifier)
+    LoginContent(modifier, navController)
 }
 
 @Composable
 fun LoginContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     var email by remember {
         mutableStateOf(TextFieldValue(""))
@@ -62,6 +68,8 @@ fun LoginContent(
         mutableStateOf(TextFieldValue(""))
     }
     var passwordVisible by remember { mutableStateOf(false) }
+    var emailError by remember { mutableStateOf(false) }
+    var passwordError by remember { mutableStateOf(false) }
 
     Column {
         Header(showSearch = false, title = stringResource(id = R.string.text_home), isLogin = true)
@@ -93,25 +101,41 @@ fun LoginContent(
                     placeholder = {
                         Text(text = "Masukkan email")
                     },
-                    onValueChange = { value ->
-                        email = value
+                    onValueChange = {
+                        if (emailError) {
+                            emailError = false
+                        }
+                        email = it
                     },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Done),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Email,
+                        imeAction = ImeAction.Done
+                    ),
                     modifier = Modifier.fillMaxWidth(),
-                    maxLines = 1
+                    maxLines = 1,
+                    shape = RoundedCornerShape(16.dp)
                 )
+                if (emailError) {
+                    Text(text = "*Required email", color = Color.Red)
+                }
                 Spacer(modifier = modifier.height(24.dp))
                 Text(text = "Kata Sandi")
                 Spacer(modifier = modifier.height(16.dp))
                 OutlinedTextField(
                     value = password,
                     placeholder = {
-                        Text(text = "Masukkan password")
+                        Text(text = "Masukkan kata sandi")
                     },
-                    onValueChange = { value ->
-                        password = value
+                    onValueChange = {
+                        if (passwordError) {
+                            passwordError = false
+                        }
+                        password = it
                     },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Password,
+                        imeAction = ImeAction.Done
+                    ),
                     visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                     trailingIcon = {
                         val image = if (passwordVisible)
@@ -125,33 +149,63 @@ fun LoginContent(
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
-                    maxLines = 1
+                    maxLines = 1,
+                    shape = RoundedCornerShape(16.dp)
                 )
+                if (passwordError) {
+                    Text(text = "*Required kata sandi", color = Color.Red)
+                }
                 Spacer(modifier = modifier.height(16.dp))
-                Text(
-                    text = "Lupa Kata Sandi?",
-                    modifier = modifier.fillMaxWidth(),
-                    textAlign = TextAlign.End
-                )
-                Spacer(modifier = modifier.height(24.dp))
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterEnd
+                ) {
+                    TextButton(onClick = { navController.navigate(Screen.ForgetPassword.route) }) {
+                        Text(
+                            text = "Lupa Kata Sandi?",
+                            color = Color.Blue
+                        )
+                    }
+                }
+                Spacer(modifier = modifier.height(8.dp))
                 Button(
-                    onClick = { },
+                    onClick = {
+                        when {
+                            email.text.isEmpty() -> {
+                                emailError = true
+                            }
+
+                            password.text.isEmpty() -> {
+                                passwordError = true
+                            }
+
+                            else ->{
+                                emailError = false
+                                passwordError = false
+                                navController.navigate(Screen.SuccessRegister.route)
+                            }
+                        }
+                    },
                     modifier = modifier.align(Alignment.End),
                     shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
                 ) {
                     Text(text = "Masuk", fontSize = 20.sp)
-
                 }
-                Spacer(modifier = Modifier.height(84.dp))
-                Row {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(text = "Belum Punya Akun?")
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "Daftar", fontWeight = FontWeight.Bold, color = Color(0xFF4222EE))
+                    TextButton(onClick = { navController.navigate(Screen.Register.route) }) {
+                        Text(
+                            text = "Daftar",
+                            color = Color.Blue
+                        )
+                    }
                 }
             }
         }
     }
-
 }
 
 @Preview

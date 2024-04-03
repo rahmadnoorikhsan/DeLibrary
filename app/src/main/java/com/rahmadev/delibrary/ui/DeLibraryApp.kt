@@ -16,7 +16,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.rahmadev.delibrary.ui.component.BottomBar
+import com.rahmadev.delibrary.ui.login.ForgetPasswordScreen
 import com.rahmadev.delibrary.ui.login.LoginScreen
+import com.rahmadev.delibrary.ui.login.RegisterScreen
+import com.rahmadev.delibrary.ui.login.SuccessRegisterScreen
 import com.rahmadev.delibrary.ui.navigation.Screen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
@@ -75,7 +78,16 @@ fun DeLibraryApp(
                 ListNewBook(navController = navHostController)
             }
             composable(Screen.Login.route) {
-                LoginScreen()
+                LoginScreen(navController = navHostController)
+            }
+            composable(Screen.ForgetPassword.route) {
+                ForgetPasswordScreen(navController = navHostController)
+            }
+            composable(Screen.Register.route) {
+                RegisterScreen(navController = navHostController)
+            }
+            composable(Screen.SuccessRegister.route) {
+                SuccessRegisterScreen(navController = navHostController)
             }
         }
     }
