@@ -1,11 +1,13 @@
 package com.rahmadev.delibrary.ui.screen.profile
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.EditNote
@@ -19,6 +21,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -48,6 +54,21 @@ fun ButtonLogin(onClick: () -> Unit) {
     }
 }
 
+
+@Composable
+fun Demo_Switch(){
+    var switchCheckedState by remember {
+        mutableStateOf(false)
+    }
+    
+    Box(
+            modifier = Modifier.width(220.dp)
+        ){
+        Switch(
+            checked = switchCheckedState,
+            onCheckedChange = {switchCheckedState = it})
+    }
+}
 @Composable
 fun ProfileContent(
     onLoginClick: () -> Unit,
@@ -73,12 +94,11 @@ fun ProfileContent(
             Column {
                 Text(text = "PENGATURAN", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(10.dp))
-                Divider(thickness = 5.dp)
+                Divider(thickness = 3.dp)
                 Row {
                     Icon(imageVector = Icons.Outlined.Circle, contentDescription = "")
                     Text(text = "Dark Mode")
-                    Switch(checked = true, onCheckedChange = {
-                    })
+                    Demo_Switch()
                 }
             }
         }
