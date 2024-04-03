@@ -39,12 +39,12 @@ object FacultiesData {
         Book(
             3,
             "Modern Software Engineering",
-            R.drawable.software
+            R.drawable.buku4
         ),
         Book(
             4,
             "Modern Software Engineering",
-            R.drawable.software
+            R.drawable.buku5
         ),
         Book(
             5,
@@ -62,22 +62,22 @@ object FacultiesData {
         FavoriteBook(
             2,
             "Best Practice Software Engineer",
-            R.drawable.rethinking
+            R.drawable.buku
         ),
         FavoriteBook(
             3,
             "Introduction to Software Engineering",
-            R.drawable.rethinking
+            R.drawable.buku1
         ),
         FavoriteBook(
             4,
             "Example of Software Engineering Implementation",
-            R.drawable.rethinking
+            R.drawable.buku2
         ),
         FavoriteBook(
             5,
             "Evaluation for Software Engineering Process",
-            R.drawable.rethinking
+            R.drawable.buku3
         )
     )
 }

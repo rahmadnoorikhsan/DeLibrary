@@ -138,7 +138,7 @@ fun CatalogContent(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(text = "BUKU TERFAVORITE")
+                            Text(text = "RATING TINGGI")
                             Text(
                                 text = "Semua",
                                 color = Color.Blue
@@ -166,7 +166,7 @@ fun CatalogContent(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(text = "BUKU TERFAVORITE")
+                            Text(text = "BUKU TERLARIS")
                             Text(
                                 text = "Semua",
                                 color = Color.Blue
