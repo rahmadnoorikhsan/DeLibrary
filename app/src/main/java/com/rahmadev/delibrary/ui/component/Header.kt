@@ -26,7 +26,8 @@ fun Header(
     showSearch: Boolean,
     title: String,
     modifier: Modifier = Modifier,
-            isLogin: Boolean = false
+    onSearchClick: (() -> Unit)? = null,
+    isLogin: Boolean = false
 ) {
     Column(
         modifier = modifier
@@ -51,17 +52,19 @@ fun Header(
                 modifier = Modifier.fillMaxWidth(0.6f)
             )
             if (showSearch) {
-                IconButton(
-                    onClick = { },
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .padding(end = 24.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = "Search Icon",
-                        tint = Color.White
-                    )
+                if (onSearchClick != null) {
+                    IconButton(
+                        onClick = onSearchClick,
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(end = 24.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search Icon",
+                            tint = Color.White
+                        )
+                    }
                 }
             }
         }

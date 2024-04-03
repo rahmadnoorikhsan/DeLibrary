@@ -21,7 +21,7 @@ fun Faculties(
         modifier = modifier
     ) {
         items(faculties, { it.id }) {
-            FolderItem(faculty = it.faculty)
+            FolderItem(faculty = it.faculty,)
         }
     }
 }

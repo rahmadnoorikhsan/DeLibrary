@@ -51,8 +51,7 @@ fun CatalogContent(
         Spacer(modifier = Modifier.height(24.dp))
         SearchView()
 
-        LazyColumn()
-        {
+        LazyColumn {
             item {
                 Surface(
                     shape = MaterialTheme.shapes.extraLarge,

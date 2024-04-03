@@ -1,13 +1,18 @@
 package com.rahmadev.delibrary.ui
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.rahmadev.delibrary.ui.component.BottomBar
@@ -16,15 +21,26 @@ import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
 import com.rahmadev.delibrary.ui.screen.home.HomeScreen
 import com.rahmadev.delibrary.ui.screen.profile.ProfileScreen
+import com.rahmadev.delibrary.ui.screen.searchhome.SearchHomeScreen
+import com.rahmadev.delibrary.ui.utils.shouldShowBottomBar
 
 @Composable
 fun DeLibraryApp(
     modifier: Modifier = Modifier,
     navHostController: NavHostController = rememberNavController(),
 ) {
+    val navBackStack by navHostController.currentBackStackEntryAsState()
+    val currentRoute = navBackStack?.destination?.route
+
     Scaffold(
         bottomBar = {
-            BottomBar(navHostController)
+            AnimatedVisibility(
+                visible = currentRoute.shouldShowBottomBar(),
+                enter = slideInVertically(initialOffsetY = { it }),
+                exit = slideOutVertically(targetOffsetY = { it }),
+            ) {
+                BottomBar(navHostController)
+            }
         }
     ) {
         NavHost(
@@ -49,6 +65,9 @@ fun DeLibraryApp(
                     navController = navHostController,
                     bookId = navBackStackEntry.arguments?.getInt("bookId")
                 )
+            }
+            composable(Screen.SearchHome.route) {
+                SearchHomeScreen(navController = navHostController)
             }
         }
     }

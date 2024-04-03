@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.rahmadev.delibrary.R
 import com.rahmadev.delibrary.ui.component.Header
+import com.rahmadev.delibrary.ui.navigation.Screen
 import com.rahmadev.delibrary.ui.screen.home.component.Faculties
 import com.rahmadev.delibrary.ui.screen.home.component.Slider
 
@@ -27,17 +28,21 @@ fun HomeScreen(
     navController: NavController,
     modifier: Modifier = Modifier,
 ) {
-    HomeContent(modifier)
+    HomeContent(
+        modifier = modifier,
+        onSearchClick = { navController.navigate(Screen.SearchHome.route) }
+    )
 }
 
 @Composable
 fun HomeContent(
     modifier: Modifier = Modifier,
+    onSearchClick: () -> Unit,
 ) {
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        Header(showSearch = true, title = stringResource(R.string.text_home))
+        Header(showSearch = true, title = stringResource(R.string.text_home), onSearchClick = onSearchClick)
         Slider(modifier = Modifier.padding(horizontal = 8.dp))
         Surface(
             shape = MaterialTheme.shapes.extraLarge,
