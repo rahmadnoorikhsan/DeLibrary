@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
@@ -78,7 +79,7 @@ fun LoginContent(modifier: Modifier = Modifier) {
                 Spacer(modifier = Modifier.height(84.dp))
                 Row {
                     Text(text = "Belum Punya Akun?")
-                    //Spacer(modifier = Modifier.weight(10.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
                     Text(text = "Daftar", fontWeight = FontWeight.Bold, color = Color(0xFF4222EE))
                 }
             }
