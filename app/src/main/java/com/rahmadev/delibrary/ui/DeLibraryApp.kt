@@ -16,6 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.rahmadev.delibrary.ui.component.BottomBar
+import com.rahmadev.delibrary.ui.login.LoginScreen
 import com.rahmadev.delibrary.ui.navigation.Screen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
@@ -55,7 +56,7 @@ fun DeLibraryApp(
                 CatalogScreen(navController = navHostController)
             }
             composable(Screen.Profile.route) {
-                ProfileScreen()
+                ProfileScreen(navController = navHostController)
             }
             composable(
                 Screen.DetailCatalog.route + "/{bookId}",
@@ -68,6 +69,9 @@ fun DeLibraryApp(
             }
             composable(Screen.SearchHome.route) {
                 SearchHomeScreen(navController = navHostController)
+            }
+            composable(Screen.Login.route) {
+                LoginScreen()
             }
         }
     }
