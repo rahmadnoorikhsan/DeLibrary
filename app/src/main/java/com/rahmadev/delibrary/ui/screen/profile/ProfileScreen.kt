@@ -25,14 +25,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.rahmadev.delibrary.R
 import com.rahmadev.delibrary.ui.component.Header
 
 @Composable
 fun ProfileScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
-    ProfileContent(modifier)
+    ProfileContent(
+        modifier
+    )
 }
 
 @Composable
@@ -43,7 +47,8 @@ fun ButtonLogin(onClick: () -> Unit) {
 }
 @Composable
 fun ProfileContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+
 ) {
     Column {
         Header(showSearch = false, title = stringResource(id = R.string.text_home) )
