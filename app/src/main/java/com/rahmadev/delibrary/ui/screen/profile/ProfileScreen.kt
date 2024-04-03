@@ -43,36 +43,30 @@ fun ProfileScreen(
 ) {
     ProfileContent(
         modifier = modifier,
-        onLoginClick = { navController.navigate(Screen.Login.route) }
+        navController = navController
     )
 }
 
 @Composable
-fun ButtonLogin(onClick: () -> Unit) {
-    Button(onClick = { onClick() }, modifier = Modifier.fillMaxWidth()) {
-        Text("Masuk")
-    }
-}
-
-
-@Composable
-fun Demo_Switch(){
+fun Demo_Switch() {
     var switchCheckedState by remember {
         mutableStateOf(false)
     }
-    
+
     Box(
-            modifier = Modifier.width(220.dp)
-        ){
+        modifier = Modifier.width(220.dp)
+    ) {
         Switch(
             checked = switchCheckedState,
-            onCheckedChange = {switchCheckedState = it})
+            onCheckedChange = { switchCheckedState = it })
     }
 }
+
 @Composable
 fun ProfileContent(
-    onLoginClick: () -> Unit,
+//    onLoginClick: () -> Unit,
     modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     Column {
         Header(showSearch = false, title = stringResource(id = R.string.text_home))
@@ -126,13 +120,10 @@ fun ProfileContent(
                     Spacer(modifier = Modifier.height(50.dp))
                 }
 
-                ButtonLogin {
-                    onLoginClick()
+                Button(onClick = { navController.navigate(Screen.Login.route) }, modifier = Modifier.fillMaxWidth()) {
+                    Text(text = "Masuk")
                 }
             }
         }
     }
 }
-
-
-
