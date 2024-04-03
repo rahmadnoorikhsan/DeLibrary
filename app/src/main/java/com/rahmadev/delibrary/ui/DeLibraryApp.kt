@@ -56,7 +56,7 @@ fun DeLibraryApp(
                 CatalogScreen(navController = navHostController)
             }
             composable(Screen.Profile.route) {
-                ProfileScreen()
+                ProfileScreen(navController = navHostController)
             }
             composable(
                 Screen.DetailCatalog.route + "/{bookId}",
@@ -71,6 +71,9 @@ fun DeLibraryApp(
                 SearchHomeScreen(navController = navHostController)
             }
             composable(Screen.ListBook.route) {
+                ListNewBook(navController = navHostController)
+            }
+            composable(Screen.Login.route) {
                 ListNewBook(navController = navHostController)
             }
         }
