@@ -15,12 +15,12 @@ object NavigationData {
             screen = Screen.Home
         ),
         NavigationItem(
-            title = "Category",
+            title = "Catalog",
             icon = Icons.Default.Book,
             screen = Screen.Catalog
         ),
         NavigationItem(
-            title = "Home",
+            title = "Person",
             icon = Icons.Default.Person,
             screen = Screen.Profile
         ),

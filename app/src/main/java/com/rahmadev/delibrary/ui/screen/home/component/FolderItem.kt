@@ -1,6 +1,7 @@
 package com.rahmadev.delibrary.ui.screen.home.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -28,6 +29,7 @@ fun FolderItem(
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
     ) {
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_folder),

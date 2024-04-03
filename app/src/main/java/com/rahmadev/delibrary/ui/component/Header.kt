@@ -23,6 +23,8 @@ import com.rahmadev.delibrary.R
 
 @Composable
 fun Header(
+    showSearch: Boolean,
+    title: String,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -42,22 +44,24 @@ fun Header(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = "Memudahkan pinjam Referensi di perpustakaan IT Del",
+                text = title,
                 textAlign = TextAlign.Center,
                 color = Color.White,
                 modifier = Modifier.fillMaxWidth(0.6f)
             )
-            IconButton(
-                onClick = { },
-                modifier = Modifier
-                    .align(Alignment.CenterEnd)
-                    .padding(end = 24.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = "Search Icon",
-                    tint = Color.White
-                )
+            if (showSearch) {
+                IconButton(
+                    onClick = { },
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .padding(end = 24.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Search Icon",
+                        tint = Color.White
+                    )
+                }
             }
         }
         Spacer(modifier = Modifier.height(24.dp))

@@ -32,7 +32,7 @@ fun FolderItemNewBook(
     onItemClick: (Int) -> Unit
 ) {
     Column(
-        modifier = Modifier.clickable {
+        modifier = modifier.clickable {
             onItemClick(newBook.id)
         },
         verticalArrangement = Arrangement.Center,
