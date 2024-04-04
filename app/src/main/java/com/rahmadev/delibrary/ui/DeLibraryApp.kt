@@ -21,6 +21,7 @@ import com.rahmadev.delibrary.ui.login.LoginScreen
 import com.rahmadev.delibrary.ui.login.RegisterScreen
 import com.rahmadev.delibrary.ui.login.SuccessRegisterScreen
 import com.rahmadev.delibrary.ui.navigation.Screen
+import com.rahmadev.delibrary.ui.screen.SplashScreen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
 import com.rahmadev.delibrary.ui.screen.catalog.ListNewBook
@@ -50,9 +51,12 @@ fun DeLibraryApp(
     ) {
         NavHost(
             navController = navHostController,
-            startDestination = Screen.Home.route,
+            startDestination = Screen.SplashScreen.route,
             modifier = modifier.padding(it)
         ) {
+            composable(Screen.SplashScreen.route){
+                SplashScreen(navController = navHostController)
+            }
             composable(Screen.Home.route) {
                 HomeScreen(navController = navHostController)
             }
