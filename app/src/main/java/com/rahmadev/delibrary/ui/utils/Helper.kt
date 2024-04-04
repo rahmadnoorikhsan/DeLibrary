@@ -10,6 +10,7 @@ fun String?.shouldShowBottomBar(): Boolean {
         Screen.ForgetPassword.route,
         Screen.Login.route,
         Screen.Register.route,
-        Screen.SuccessRegister.route
+        Screen.SuccessRegister.route,
+        Screen.RiwayatPeminjaman.route
     )
 }

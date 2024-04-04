@@ -11,11 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Person4
 import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -44,7 +46,8 @@ fun ProfileScreen(
 ) {
     ProfileContent(
         modifier = modifier,
-        onLoginClick = { navController.navigate(Screen.Login.route) }
+        onLoginClick = { navController.navigate(Screen.Login.route) },
+        navController = navController
     )
 }
 
@@ -82,6 +85,7 @@ fun Demo_Switch(
 fun ProfileContent(
     onLoginClick: () -> Unit,
     modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     Column {
         Header(showSearch = false, title = stringResource(id = R.string.text_home))
@@ -165,6 +169,23 @@ fun ProfileContent(
                         Text(text = "Ubah Kata Sandi")
                     }
                     Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier
+                    ) {
+                        Icon(imageVector = Icons.Default.History, contentDescription = "")
+                        Text(text = "Riwayat Peminjaman")
+                    }
+                    IconButton(onClick = { navController.navigate(Screen.RiwayatPeminjaman.route) }) {
+                        Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
+                    }
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 ButtonLogin {

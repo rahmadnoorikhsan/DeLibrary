@@ -21,6 +21,7 @@ import com.rahmadev.delibrary.ui.login.LoginScreen
 import com.rahmadev.delibrary.ui.login.RegisterScreen
 import com.rahmadev.delibrary.ui.login.SuccessRegisterScreen
 import com.rahmadev.delibrary.ui.navigation.Screen
+import com.rahmadev.delibrary.ui.screen.RiwayatPeminjaman
 import com.rahmadev.delibrary.ui.screen.SplashScreen
 import com.rahmadev.delibrary.ui.screen.catalog.CatalogScreen
 import com.rahmadev.delibrary.ui.screen.catalog.DetailCatalog
@@ -92,6 +93,9 @@ fun DeLibraryApp(
             }
             composable(Screen.SuccessRegister.route) {
                 SuccessRegisterScreen(navController = navHostController)
+            }
+            composable(Screen.RiwayatPeminjaman.route){
+                RiwayatPeminjaman()
             }
         }
     }
