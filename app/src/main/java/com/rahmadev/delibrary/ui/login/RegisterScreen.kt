@@ -89,17 +89,17 @@ fun RegisterContent(
                 verticalArrangement = Arrangement.Top,
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 10.dp)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_molis),
                     contentDescription = "Molis Icon",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 32.dp)
-                        .height(54.dp)
+                        .padding(top = 25.dp)
+                        .height(45.dp)
                 )
-                Spacer(modifier = modifier.height(16.dp))
+                Spacer(modifier = modifier.height(8.dp))
                 Text(
                     text = "Daftar",
                     textDecoration = TextDecoration.Underline,
@@ -109,11 +109,12 @@ fun RegisterContent(
                     textAlign = TextAlign.Center,
                     color = Color(0xFF4222EE)
                 )
-                Spacer(modifier = modifier.height(16.dp))
-                Text(text = "Nama Lengkap")
                 Spacer(modifier = modifier.height(8.dp))
+                Text(text = "Nama")
+                Spacer(modifier = modifier.height(6.dp))
                 OutlinedTextField(
                     value = name,
+
                     placeholder = {
                         Text(text = "Masukkan nama lengkap")
                     },
@@ -128,7 +129,7 @@ fun RegisterContent(
                     shape = RoundedCornerShape(16.dp)
                 )
                 Text(text = "NIM")
-                Spacer(modifier = modifier.height(8.dp))
+                Spacer(modifier = modifier.height(6.dp))
                 OutlinedTextField(
                     value = nim,
                     placeholder = {
@@ -146,7 +147,7 @@ fun RegisterContent(
                     shape = RoundedCornerShape(16.dp)
                 )
                 Text(text = "Prodi")
-                Spacer(modifier = modifier.height(8.dp))
+                Spacer(modifier = modifier.height(6.dp))
                 OutlinedTextField(
                     value = prodi,
                     placeholder = {
@@ -163,7 +164,7 @@ fun RegisterContent(
                     shape = RoundedCornerShape(16.dp)
                 )
                 Text(text = "Email")
-                Spacer(modifier = modifier.height(8.dp))
+                Spacer(modifier = modifier.height(6.dp))
                 OutlinedTextField(
                     value = email,
                     placeholder = {
@@ -212,7 +213,7 @@ fun RegisterContent(
                     shape = RoundedCornerShape(16.dp)
                 )
                 Text(text = " Konfirmasi Kata Sandi")
-                Spacer(modifier = modifier.height(8.dp))
+                Spacer(modifier = modifier.height(6.dp))
                 OutlinedTextField(
                     value = passwordConfirm,
                     placeholder = {
@@ -261,7 +262,7 @@ fun RegisterContent(
                             navController.navigate(Screen.SuccessRegister.route) },
                         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
                     ) {
-                        Text(text = "Daftar", fontSize = 20.sp)
+                        Text(text = "Daftar", fontSize = 15.sp)
                     }
                 }
             }
