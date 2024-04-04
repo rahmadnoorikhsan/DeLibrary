@@ -168,7 +168,9 @@ fun ProfileContent(
                         Icon(imageVector = Icons.Default.EditNote, contentDescription = "")
                         Text(text = "Ubah Kata Sandi")
                     }
-                    Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
+                    IconButton(onClick = { navController.navigate(Screen.ForgetPassword.route) }) {
+                        Icon(imageVector = Icons.Default.ChevronRight, contentDescription = "")
+                    }
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Row(
