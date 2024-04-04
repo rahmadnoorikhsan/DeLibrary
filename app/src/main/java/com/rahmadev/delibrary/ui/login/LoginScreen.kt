@@ -181,7 +181,7 @@ fun LoginContent(
                             else ->{
                                 emailError = false
                                 passwordError = false
-                                navController.navigate(Screen.SuccessRegister.route)
+//                                navController.navigate(Screen.SuccessRegister.route)
                             }
                         }
                     },
